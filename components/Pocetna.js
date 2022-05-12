@@ -11,6 +11,7 @@ import {
   ScrollView,
   RefreshControl,
   Dimensions,
+  Linking,
 } from "react-native";
 import React, { Component, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -207,11 +208,11 @@ export default class Pocetna extends Component {
         if (brojNeprocitanihMejlova == 0) {
           this.setState({ brojMejlovaText: "Nemate nepročitanih poruka" });
         } else if (brojNeprocitanihMejlova == 1) {
-          this.setState({ brojMejlovaText: "1. Nepročitana poruka" });
+          this.setState({ brojMejlovaText: "1 Nepročitana poruka" });
         } else if (brojNeprocitanihMejlova == 2) {
-          this.setState({ brojMejlovaText: "2. Nepročitane poruke" });
+          this.setState({ brojMejlovaText: "2 Nepročitane poruke" });
         } else if (brojNeprocitanihMejlova == 3) {
-          this.setState({ brojMejlovaText: "3. Nepročitane poruke" });
+          this.setState({ brojMejlovaText: "3 Nepročitane poruke" });
         } else if (brojNeprocitanihMejlova > 3) {
           this.setState({
             brojMejlovaText: brojNeprocitanihMejlova + " Nepročitanih poruka",
@@ -318,11 +319,11 @@ export default class Pocetna extends Component {
   _renderPopup = () => (
     <View style={styles.bday}>
       <View style={styles.contentBD}>
-        <TouchableOpacity style={{ position: 'absolute', padding: 5 , top: 10, right: 10, zIndex: 50, elevation: 50, backgroundColor:'#c9093d', borderRadius: 100 }} onPress={() => { this.setState({ visiblePopup: null }) }}>
+        <TouchableOpacity style={{ position: 'absolute', padding: 5, top: 10, right: 10, zIndex: 50, elevation: 50, backgroundColor: '#c9093d', borderRadius: 100 }} onPress={() => { this.setState({ visiblePopup: null }) }}>
           <Image source={CloseIcon} style={{ width: 30, height: 30 }} />
         </TouchableOpacity>
         <Image
-          style={{width: 300, height: 500}}
+          style={{ width: 300, height: 500 }}
           source={METIGIF} />
       </View>
     </View>
@@ -442,7 +443,8 @@ export default class Pocetna extends Component {
   _onRefresh() {
     this.setState({ refreshing: true });
 
-    // Neki kod pa then this.setState({refreshing: false});
+    this.props.navigation.replace("Pocetna", null, null); //Refresh screen
+
     setTimeout(() => {
       this.setState({ refreshing: false });
     }, 1000);
@@ -571,7 +573,8 @@ export default class Pocetna extends Component {
             </View>
 
             <View style={styles.unreadMailContainer}>
-              <Text style={styles.categoryTitle}>Nova Obaveštenja</Text>
+              <Text style={styles.categoryTitle}>Nepročitana obaveštenja</Text>
+              
               <View style={styles.buttonObavestenja}>
                 <Text style={styles.unreadTitle}>
                   {this.state.naslovObavestenje1}
@@ -686,47 +689,62 @@ export default class Pocetna extends Component {
                     marginRight: "5%",
                   }}
                 >
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => {
+                    Linking.openURL('https://www.facebook.com/UniverzitetMetropolitan/')
+                  }}>
                     <Image source={FacebookIcon} style={styles.circularImage} />
                   </TouchableOpacity>
-                  <TouchableOpacity>
-                    <Image
-                      source={InstagramIcon}
-                      style={styles.circularImage}
-                    />
+                  <TouchableOpacity onPress={() => {
+                    Linking.openURL('https://www.instagram.com/univerzitet_metropolitan/')
+                  }}>
+                    <Image source={InstagramIcon} style={styles.circularImage} />
                   </TouchableOpacity>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => {
+                    Linking.openURL('https://www.tiktok.com/@univerzitetmetropolitan')
+                  }}>
                     <Image source={TikTokIcon} style={styles.circularImage} />
                   </TouchableOpacity>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => {
+                    Linking.openURL('https://www.youtube.com/user/fitmetropolitan')
+                  }}>
                     <Image source={YoutubeIcon} style={styles.circularImage} />
                   </TouchableOpacity>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => {
+                    Linking.openURL('https://www.linkedin.com/school/univerzitet-metropolitan/')
+                  }}>
                     <Image source={LinkedinIcon} style={styles.circularImage} />
                   </TouchableOpacity>
                 </View>
               </View>
 
               <View style={styles.gridWrapInstagram}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  Linking.openURL('https://www.instagram.com/univerzitet_metropolitan/')
+                }}>
                   <Image
                     source={{ uri: this.state.uriIg1 }}
                     style={styles.igPhoto}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  Linking.openURL('https://www.instagram.com/univerzitet_metropolitan/')
+                }}>
                   <Image
                     source={{ uri: this.state.uriIg2 }}
                     style={styles.igPhoto}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  Linking.openURL('https://www.instagram.com/univerzitet_metropolitan/')
+                }}>
                   <Image
                     source={{ uri: this.state.uriIg3 }}
                     style={styles.igPhoto}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                  Linking.openURL('https://www.instagram.com/univerzitet_metropolitan/')
+                }}>
                   <Image
                     source={{ uri: this.state.uriIg4 }}
                     style={styles.igPhoto}
@@ -941,7 +959,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 10,
+    marginTop: 40,
   },
   gridWrapInstagram: {
     justifyContent: "center",
