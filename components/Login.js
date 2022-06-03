@@ -51,28 +51,28 @@ export default class Login extends Component {
   //Viktor kod
   login = () => {
     // DEV MODE:
-    this.props.navigation.replace("Pocetna");
+    //this.props.navigation.replace("Pocetna");
     // SERVER MODE
-    // const baseURL = "http://89.216.56.107/auth";
-    // axios
-    //   .post(
-    //     baseURL,
-    //     { email: this.state.email, password: this.state.password },
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   )
-    //   .then((response) => {
-    //     //console.log(response.data);
-    //     if (response.data.success) {
-    //       this.storeData(this.state.email, this.state.password);
-    //       this.props.navigation.navigate("Pocetna");
-    //     } else {
-    //       alert(response.data.message);
-    //     }
-    //   });
+    const baseURL = "http://89.216.56.107/auth";
+    axios
+      .post(
+        baseURL,
+        { email: this.state.email, password: this.state.password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        //console.log(response.data);
+        if (response.data.success) {
+          this.storeData(this.state.email, this.state.password);
+          this.props.navigation.navigate("Pocetna");
+        } else {
+          alert(response.data.message);
+        }
+      });
   };
 
   storeData = async (email, password) => {

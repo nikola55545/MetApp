@@ -323,7 +323,7 @@ export default class Pocetna extends Component {
           <Image source={CloseIcon} style={{ width: 30, height: 30 }} />
         </TouchableOpacity>
         <Image
-          style={{ width: 300, height: 500 }}
+          style={{ width: "100%", height: "100%",borderRadius: 100 }}
           source={METIGIF} />
       </View>
     </View>
@@ -567,7 +567,7 @@ export default class Pocetna extends Component {
                     this.props.navigation.navigate("Zimbra");
                   }}
                 >
-                  <Text style={{ color: "white" }}>PROVERI POSTU</Text>
+                  <Text style={{ color: "white" }}>PROVERI POŠTU</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -579,7 +579,7 @@ export default class Pocetna extends Component {
                 <Text style={styles.unreadTitle}>
                   {this.state.naslovObavestenje1}
                 </Text>
-                <Text style={styles.unreadDesc}>
+                <Text style={styles.obavestenjeTekst}>
                   {this.state.tekstObavestenje1}
                 </Text>
               </View>
@@ -587,7 +587,7 @@ export default class Pocetna extends Component {
                 <Text style={styles.unreadTitle}>
                   {this.state.naslovObavestenje2}
                 </Text>
-                <Text style={styles.unreadDesc}>
+                <Text style={styles.obavestenjeTekst}>
                   {this.state.tekstObavestenje2}
                 </Text>
               </View>
@@ -595,7 +595,7 @@ export default class Pocetna extends Component {
                 <Text style={styles.unreadTitle}>
                   {this.state.naslovObavestenje3}
                 </Text>
-                <Text style={styles.unreadDesc}>
+                <Text style={styles.obavestenjeTekst}>
                   {this.state.tekstObavestenje3}
                 </Text>
               </View>
@@ -690,7 +690,7 @@ export default class Pocetna extends Component {
                   }}
                 >
                   <TouchableOpacity onPress={() => {
-                    Linking.openURL('https://www.facebook.com/UniverzitetMetropolitan/')
+                    Linking.openURL('fb://profile/198354210204698')
                   }}>
                     <Image source={FacebookIcon} style={styles.circularImage} />
                   </TouchableOpacity>

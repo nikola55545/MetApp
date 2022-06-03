@@ -35,7 +35,7 @@ const App = () => {
         <Stack.Screen
           name="Obavestenja"
           component={Obavestenja}
-          options={{ headerShown: true, headerBackTitle: "Nazad", headerStyle:{backgroundColor: '#c9093d'}, headerTintColor: 'white' }}
+          options={{ headerShown: true, headerBackTitle: "Nazad", headerStyle:{backgroundColor: '#c9093d'}, headerTintColor: 'white', title: 'Obaveštenja' }}
         />
         <Stack.Screen
           name="Popusti"
@@ -60,7 +60,7 @@ const App = () => {
         <Stack.Screen
           name="Podesavanja"
           component={Podesavanja}
-          options={{ headerShown: true, headerBackTitle: "Nazad", headerStyle:{backgroundColor: '#c9093d'}, headerTintColor: 'white' }}
+          options={{ headerShown: true, headerBackTitle: "Nazad", headerStyle:{backgroundColor: '#c9093d'}, headerTintColor: 'white', title: 'Podešavanja' }}
         />
         
         <Stack.Screen
