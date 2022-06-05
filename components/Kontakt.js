@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     Dimensions,
     Image,
+    Linking
 } from "react-native";
 import React, { Component, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
@@ -29,12 +30,12 @@ export default class Kontakt extends Component {
             <View style={{ flex: 1, alignItems: "center", justifyContent: "flex-start" }}>
                 <StatusBar style="light" />
                 <View style={styles.topIcons}>
-                    <TouchableOpacity><Image source={WhatsappIcon} style={styles.icon} /></TouchableOpacity>
-                    <TouchableOpacity><Image source={ViberIcon} style={styles.icon} /></TouchableOpacity>
-                    <TouchableOpacity onPress={() => { Linking.openURL('https://www.facebook.com/UniverzitetMetropolitan/')}}><Image source={FacebookIcon} style={styles.icon} /></TouchableOpacity>
-                    <TouchableOpacity onPress={() => { Linking.openURL('https://www.tiktok.com/@univerzitetmetropolitan')}}><Image source={TikTokIcon} style={styles.icon} /></TouchableOpacity>
-                    <TouchableOpacity onPress={() => { Linking.openURL('https://www.instagram.com/univerzitet_metropolitan/')}}><Image source={InstagramIcon} style={styles.icon} /></TouchableOpacity>
-                    <TouchableOpacity onPress={() => { Linking.openURL('https://www.linkedin.com/school/univerzitet-metropolitan/')}}><Image source={LinkedinIcon} style={styles.icon} /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { Linking.openURL('fb://profile/198354210204698'); }}><Image source={FacebookIcon} style={styles.icon} /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { Linking.openURL('https://www.instagram.com/univerzitet_metropolitan/') }}><Image source={InstagramIcon} style={styles.icon} /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { Linking.openURL('https://www.tiktok.com/@univerzitetmetropolitan') }}><Image source={TikTokIcon} style={styles.icon} /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { Linking.openURL('whatsapp://send?phone=+381643116028') }}><Image source={WhatsappIcon} style={styles.icon} /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { Linking.openURL('https://invite.viber.com/?g2=AQBJska8QynzJ0uweVCo63nyT2zoAzd%2BLysVBSNOUk1YexL6COPPzK4LmSrlM%2F4F&lang=sr') }}><Image source={ViberIcon} style={styles.icon} /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => { Linking.openURL('https://www.linkedin.com/school/univerzitet-metropolitan/') }}><Image source={LinkedinIcon} style={styles.icon} /></TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.button}>
                     <View>
