@@ -40,7 +40,7 @@ import registerNNPushToken from "native-notify";
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+const App = () => {
   registerNNPushToken(2597, "6KYr95bAzqbUAG4d1yry86");
   return (
     <NavigationContainer>
@@ -131,6 +131,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
-//export default App;
+export default App;
